@@ -1,0 +1,84 @@
+{
+  "sites": [
+    {
+      "id": 1,
+      "address": "502 Main St",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic1.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 2,
+      "address": "200 Central St",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic2.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 3,
+      "address": "555 Walnut Street",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic3.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 4,
+      "address": "2211 Kingston Pk",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic4.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 5,
+      "address": "122 Kingston Pk",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic5.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 6,
+      "address": "502 Main St",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic1.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 7,
+      "address": "200 Central St",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic2.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 8,
+      "address": "555 Walnut Street",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic3.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 9,
+      "address": "2211 Kingston Pk",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic4.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": 10,
+      "address": "122 Kingston Pk",
+      "latlong": [1.142, 2.223],
+      "imgPath": "generic5.jpg",
+      "ownerId": 1
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "parkers": {
+    "name": "typicode"
+  }
+}

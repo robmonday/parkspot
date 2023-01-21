@@ -1,26 +1,37 @@
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
 const Login = () => {
   return (
-    <div>
-      <p>This is the login form</p>
+    <div
+      className="border border-secondary rounded-3 col col-12 col-md-9 col-lg-6"
+      style={{ padding: '2em' }}
+    >
+      <h4>Log In</h4> <br />
       <form onSubmit={() => alert('submit!')}>
-        <label forHtml="email">Email </label>{' '}
+        {/* <label htmlFor="email">Email </label> */}
         <input
-          placeholder="your@email.com"
+          className="form-control form-control-lg"
+          placeholder="Email"
+          type="email"
           // value={'email'}
           onChange={(e) => console.log(e.target.value)}
         />
         <br />
-        <label forHtml="password">Password </label>{' '}
+        {/* <label htmlFor="password">Password </label> */}
         <input
+          className="form-control form-control-lg"
+          placeholder="Password"
           id="password"
           type="password"
           // value={'password'}
           onChange={(e) => console.log(e.target.value)}
         />
-        <p>
-          <button type="submit">Submit</button>
-        </p>
+        <br />
+        <Button type="submit">Submit</Button>
       </form>
+      <br />
+      Don't have an account yet? &nbsp;<Link to="/signup">Sign Up!</Link>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 const Footer = () => {
   return (
-    <div>
+    <footer>
+      <br />
       <p>&copy; 2023, Parking Spot App</p>
-    </div>
+    </footer>
   )
 }
 
