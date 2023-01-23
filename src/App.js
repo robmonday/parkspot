@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import Layout from './components/Layout'
 import Home from './components/Home'
-import SignUp from './components/Signup'
+import SignUp from './components/SignUp'
 import Login from './components/Login'
 import OwnSpot from './components/OwnSpot'
 import FindSpot from './components/FindSpot'
