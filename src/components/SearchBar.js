@@ -7,7 +7,7 @@ const SearchBar = ({
   handleMapToggle,
 }) => {
   return (
-    <div class="row">
+    <div className="row">
       <div className="col ">
         <h4 className="">
           Find<span className="d-none d-md-inline"> A Spot</span>
@@ -32,7 +32,7 @@ const SearchBar = ({
         ) : (
           <Button variant="primary" onClick={handleMapToggle}>
             <span className="d-none d-sm-inline">Grid &nbsp;</span>
-            <i class="bi bi-grid"></i>
+            <i className="bi bi-grid"></i>
           </Button>
         )}
       </div>
