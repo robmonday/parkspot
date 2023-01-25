@@ -135,7 +135,7 @@ const SignUp3 = () => {
           })}
         />
         <br />
-        <Button type="submit">Submit</Button>&nbsp;
+        <Button type="submit">Submit</Button> &nbsp;
         <Button href="/" variant="outline-primary">
           Cancel
         </Button>

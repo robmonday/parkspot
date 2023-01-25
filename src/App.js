@@ -24,7 +24,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="ownspot" element={user ? <OwnSpot /> : <Login />} />
           <Route path="findspot" element={<FindSpot />} />
-          <Route path="site/:siteId" element={<SiteDetail />} />
+          <Route path="sites/:siteId" element={<SiteDetail />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

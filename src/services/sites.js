@@ -1,9 +1,14 @@
 import axios from 'axios'
-const baseUrl = '/sites'
+const baseUrl = '/api/sites'
 
 const getAll = async () => {
-  const request = await axios.get(baseUrl)
-  return request.data
+  const req = await axios.get(baseUrl)
+  return req.data
 }
 
-export default { getAll }
+const getOne = async (id) => {
+  const req = await axios.get(`${baseUrl}/${id}`)
+  return req.data
+}
+
+export default { getAll, getOne }

@@ -28,10 +28,13 @@ const Login = () => {
           onChange={(e) => console.log(e.target.value)}
         />
         <br />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Submit</Button> &nbsp;
+        <Button href="/" variant="outline-primary">
+          Cancel
+        </Button>
       </form>
       <br />
-      Don't have an account yet? &nbsp;<Link to="/signup">Sign Up!</Link>
+      Don&apos;t have an account yet? &nbsp;<Link to="/signup">Sign Up!</Link>
     </div>
   )
 }
