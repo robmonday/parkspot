@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const Header = ({ user }) => {
+const Header = ({ user, handleLogout }) => {
   const padding = { padding: '1em' }
 
   return (
@@ -19,6 +19,10 @@ const Header = ({ user }) => {
           {user ? (
             <>
               <span>Welcome, {user.firstName}!</span> &nbsp;
+              <Link to="/" onClick={handleLogout}>
+                Logout
+              </Link>{' '}
+              &nbsp;
               <i className="bi bi-person-square"></i>
             </>
           ) : (

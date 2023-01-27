@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import Layout from './components/Layout'
@@ -15,6 +15,7 @@ import loginService from './services/login'
 import './App.css'
 
 function App() {
+  const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
   const handleLogin = async (event) => {
@@ -25,17 +26,24 @@ function App() {
         email: 'rob.monday@gmail.com',
         password: 'secret',
       })
-      // console.log(loginUser)
       setUser(loginUser)
+      navigate('/findspot')
     } catch (error) {
       alert('Wrong credentials')
     }
   }
 
+  const handleLogout = () => {
+    setUser('')
+  }
+
   return (
     <div className="container">
       <Routes>
-        <Route path="/" element={<Layout user={user} />}>
+        <Route
+          path="/"
+          element={<Layout user={user} handleLogout={handleLogout} />}
+        >
           <Route index element={<Home />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login handleLogin={handleLogin} />} />
