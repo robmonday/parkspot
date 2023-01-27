@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
-const Login = ({ handleLogin }) => {
+const Login = ({ handleLogin, handleChange, inputs }) => {
   return (
     <div
       className="border border-secondary rounded-3 col col-12 col-md-9 col-lg-6"
@@ -9,23 +9,25 @@ const Login = ({ handleLogin }) => {
     >
       <h4>Log In</h4> <br />
       <form onSubmit={handleLogin}>
-        {/* <label htmlFor="email">Email </label> */}
+        <label htmlFor="email">Email </label>
         <input
+          name="email"
           className="form-control form-control-lg"
-          placeholder="Email"
+          // placeholder="Email"
           type="email"
-          // value={'email'}
-          // onChange={(e) => console.log(e.target.value)}
+          value={inputs.email}
+          onChange={handleChange}
         />
         <br />
-        {/* <label htmlFor="password">Password </label> */}
+        <label htmlFor="password">Password </label>
         <input
+          name="password"
           className="form-control form-control-lg"
-          placeholder="Password"
+          // placeholder="Password"
           id="password"
           type="password"
-          // value={'password'}
-          // onChange={(e) => console.log(e.target.value)}
+          value={inputs.password}
+          onChange={handleChange}
         />
         <br />
         <Button type="submit">Submit</Button> &nbsp;&nbsp;
