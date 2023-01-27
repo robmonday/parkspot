@@ -5,7 +5,7 @@ const SearchResult = ({ site }) => {
     <div className="col col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mt-3">
       <a
         style={{ textDecoration: 'none', color: 'black' }}
-        href={'site/' + site.id}
+        href={'sites/' + site.id}
       >
         <Card>
           <Card.Img

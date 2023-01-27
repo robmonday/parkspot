@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({ user }) => {
   const padding = { padding: '1em' }
 
   return (
@@ -16,13 +16,21 @@ const Header = () => {
           </h3>
         </span>
         <span style={{ float: 'right' }}>
-          <Link style={padding} to="/signup">
-            Sign Up
-          </Link>
-          <Link style={padding} to="/login">
-            Login
-          </Link>
-          <i className="bi bi-person-square"></i>
+          {user ? (
+            <>
+              <span>Welcome, {user.firstName}!</span> &nbsp;
+              <i className="bi bi-person-square"></i>
+            </>
+          ) : (
+            <>
+              <Link style={padding} to="/signup">
+                Sign Up
+              </Link>
+              <Link style={padding} to="/login">
+                Login
+              </Link>
+            </>
+          )}
         </span>
 
         <div style={padding}>

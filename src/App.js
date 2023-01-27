@@ -10,18 +10,35 @@ import FindSpot from './components/FindSpot'
 import SiteDetail from './components/SiteDetail'
 import NoPage from './components/NoPage'
 
+import loginService from './services/login'
+
 import './App.css'
 
 function App() {
   const [user, setUser] = useState(null)
 
+  const handleLogin = async (event) => {
+    event.preventDefault()
+
+    try {
+      const loginUser = await loginService.login({
+        email: 'rob.monday@gmail.com',
+        password: 'secret',
+      })
+      // console.log(loginUser)
+      setUser(loginUser)
+    } catch (error) {
+      alert('Wrong credentials')
+    }
+  }
+
   return (
     <div className="container">
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout user={user} />}>
           <Route index element={<Home />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login handleLogin={handleLogin} />} />
           <Route path="ownspot" element={user ? <OwnSpot /> : <Login />} />
           <Route path="findspot" element={<FindSpot />} />
           <Route path="sites/:siteId" element={<SiteDetail />} />

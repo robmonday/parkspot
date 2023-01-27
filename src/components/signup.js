@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 
 import { Button } from 'react-bootstrap'
 
+import { createUser } from '../services/users'
+
 let renderCount = 0
 
 const SignUp3 = () => {
@@ -31,6 +33,8 @@ const SignUp3 = () => {
     delete data.emailConfirm
     delete data.passwordConfirm
     alert(JSON.stringify(data))
+    console.log(typeof createUser)
+    createUser(JSON.stringify(data))
   }
 
   const errorMessageStyle = {
