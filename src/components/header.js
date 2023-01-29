@@ -18,18 +18,15 @@ const Header = ({ user, handleLogout }) => {
         <span style={{ float: 'right' }}>
           {user ? (
             <>
-              <span>Welcome, {user.firstName}!</span> &nbsp;
+              <i className="bi bi-person-square"></i>
+              <span>&nbsp; {user.firstName}</span> &nbsp;
               <Link to="/" onClick={handleLogout}>
                 Logout
-              </Link>{' '}
-              &nbsp;
-              <i className="bi bi-person-square"></i>
+              </Link>
             </>
           ) : (
             <>
-              <Link style={padding} to="/signup">
-                Sign Up
-              </Link>
+              <i className="bi bi-person-square"></i>
               <Link style={padding} to="/login">
                 Login
               </Link>
@@ -44,7 +41,13 @@ const Header = ({ user, handleLogout }) => {
           <Link style={padding} to="/ownspot">
             My Spots
           </Link>
-          <br />
+          {user ? (
+            ''
+          ) : (
+            <Link style={padding} to="/signup">
+              Sign Up
+            </Link>
+          )}
         </div>
       </header>
     </>

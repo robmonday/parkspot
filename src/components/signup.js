@@ -1,15 +1,18 @@
 import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import { Button } from 'react-bootstrap'
 
-import { createUser } from '../services/users'
+import userService from '../services/users'
 
-let renderCount = 0
+// let renderCount = 0
 
-const SignUp3 = () => {
-  renderCount++
-  console.log('Render Count:', renderCount)
+const SignUp = () => {
+  // renderCount++
+  // console.log('Render Count:', renderCount)
+
+  const navigate = useNavigate()
 
   const {
     register,
@@ -30,11 +33,22 @@ const SignUp3 = () => {
   email.current = watch('email', '')
 
   const onSubmit = (data) => {
-    delete data.emailConfirm
-    delete data.passwordConfirm
-    alert(JSON.stringify(data))
-    console.log(typeof createUser)
-    createUser(JSON.stringify(data))
+    // event.preventDefault() //already handled by react hook forms
+    try {
+      // alert(JSON.stringify(data))
+      const newUser = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        phone: data.phone,
+        email: data.email,
+        password: data.password,
+      }
+      // alert(JSON.stringify(newUser))
+      userService.createUser(newUser)
+      navigate('/login')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const errorMessageStyle = {
@@ -148,4 +162,4 @@ const SignUp3 = () => {
   )
 }
 
-export default SignUp3
+export default SignUp

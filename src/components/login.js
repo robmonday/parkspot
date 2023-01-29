@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
-const Login = ({ handleLogin, handleChange, inputs }) => {
+import Error from './HeaderAlert'
+
+const Login = ({ handleLogin, handleChange, loginInputs, errorMessage }) => {
   return (
     <div
       className="border border-secondary rounded-3 col col-12 col-md-9 col-lg-6"
@@ -15,7 +17,7 @@ const Login = ({ handleLogin, handleChange, inputs }) => {
           className="form-control form-control-lg"
           // placeholder="Email"
           type="email"
-          value={inputs.email}
+          value={loginInputs.email}
           onChange={handleChange}
         />
         <br />
@@ -26,7 +28,7 @@ const Login = ({ handleLogin, handleChange, inputs }) => {
           // placeholder="Password"
           id="password"
           type="password"
-          value={inputs.password}
+          value={loginInputs.password}
           onChange={handleChange}
         />
         <br />
@@ -38,6 +40,7 @@ const Login = ({ handleLogin, handleChange, inputs }) => {
         <Link to={'/forgot'}>Forgot password?</Link>
       </form>
       <br />
+      <Error message={errorMessage} />
       Don&apos;t have an account yet? &nbsp;<Link to="/signup">Sign Up!</Link>
     </div>
   )

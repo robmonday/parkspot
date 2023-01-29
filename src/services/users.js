@@ -13,8 +13,7 @@ const getOne = async (id) => {
 
 const createUser = async (credentials) => {
   const req = await axios.post(baseUrl, credentials)
-  console.log(credentials)
   return req.data
 }
 
-export { getAll, getOne, createUser }
+export default { getAll, getOne, createUser }

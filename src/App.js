@@ -17,7 +17,8 @@ import './App.css'
 function App() {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
-  const [inputs, setInputs] = useState({
+  const [errorMessage, setErrorMessage] = useState('')
+  const [loginInputs, setLoginInputs] = useState({
     email: '',
     password: '',
   })
@@ -35,8 +36,8 @@ function App() {
     event.preventDefault()
     try {
       const loginUser = await loginService.login({
-        email: inputs.email,
-        password: inputs.password,
+        email: loginInputs.email,
+        password: loginInputs.password,
       })
       setUser(loginUser)
       window.localStorage.setItem(
@@ -45,19 +46,25 @@ function App() {
       )
       navigate('/findspot')
     } catch (error) {
-      alert('Wrong credentials')
+      setErrorMessage('Email and password are not valid')
+      setTimeout(() => setErrorMessage(''), 3000)
+      setLoginInputs({
+        email: '',
+        password: '',
+      })
     }
   }
 
   const handleLogout = () => {
     setUser('')
+    window.localStorage.removeItem('loggedParkspotUser')
   }
 
   const handleChange = (event) => {
-    // console.log(inputs)
+    // console.log(loginInputs)
     const name = event.target.name
     const value = event.target.value
-    setInputs((values) => ({ ...values, [name]: value }))
+    setLoginInputs((values) => ({ ...values, [name]: value }))
   }
 
   return (
@@ -75,7 +82,8 @@ function App() {
               <Login
                 handleLogin={handleLogin}
                 handleChange={handleChange}
-                inputs={inputs}
+                loginInputs={loginInputs}
+                errorMessage={errorMessage}
               />
             }
           />
@@ -88,7 +96,8 @@ function App() {
                 <Login
                   handleLogin={handleLogin}
                   handleChange={handleChange}
-                  inputs={inputs}
+                  loginInputs={loginInputs}
+                  errorMessage={errorMessage}
                 />
               )
             }
